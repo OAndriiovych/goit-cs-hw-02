@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: hw02
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_PASSWORD: 567234
     ports:
       - "5432:5432"
 

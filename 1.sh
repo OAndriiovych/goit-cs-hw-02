@@ -2,8 +2,7 @@ websites=("https://google.com" "https://facebook.com" "https://twitter.com")
 logfile="website_check.log"
 for site in "${websites[@]}"
 do
-    response=$(curl -Is --head --silent "$site" | head -n 1 | cut -d " " -f 2)
-    if [ "$response" = "200" ]; then
+    if curl -s -L --head -w "%{http_code}\n" "$site" | grep "200" > /dev/null; then
         status="UP"
     else
         status="DOWN"
